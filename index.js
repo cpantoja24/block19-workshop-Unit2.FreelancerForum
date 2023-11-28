@@ -29,8 +29,12 @@ const availableFreelancers = document.createElement("h3");
 availableFreelancers.textContent ="Available Freelancers "
 body.append(availableFreelancers);
 
+let counter = 0;
 
 const addFreelancerIntervalId = setInterval(addFreelancer, 2000);
+// const averagePrice = document.createElement("h2");
+// averagePrice.textContent =`The average starting price is $${averageStartingPrice()}`
+// body.append(averagePrice);
 
 render();
 
@@ -50,30 +54,24 @@ function render () {
     freelancerDetails.replaceChildren(...freelancerElements);
 }
 
-
 function addFreelancer() {
         
-    freelancers.push(moreFreelancers[0]);
-
+    freelancers.push(moreFreelancers[counter]);
+    counter++
+    
     render();
-    console.table(freelancers);
+    
     console.log(averageStartingPrice());
 
     if (freelancers.length >= moreFreelancers.length +2) {
         clearInterval(addFreelancerIntervalId);
     }
-
 }
 
 function averageStartingPrice() {
-    sum = 0;
+    let sum = 0;
     for (let i=0; i<freelancers.length; i++) {
         sum += freelancers[i].price;
     }
     return sum/freelancers.length
 }
-
-
-
-
-
