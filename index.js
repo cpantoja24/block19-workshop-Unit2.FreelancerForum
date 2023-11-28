@@ -17,12 +17,12 @@ const moreFreelancers = [
 ]
 
 const body = document.querySelector("body");
+
 const title = document.createElement("h1");
 title.textContent = "Freelancer Forum";
 body.append(title);
 
 const averagePrice = document.createElement("h2");
-averagePrice.textContent =`The average starting price is $${averageStartingPrice()}`
 body.append(averagePrice);
 
 const availableFreelancers = document.createElement("h3");
@@ -32,11 +32,6 @@ body.append(availableFreelancers);
 let counter = 0;
 
 const addFreelancerIntervalId = setInterval(addFreelancer, 2000);
-// const averagePrice = document.createElement("h2");
-// averagePrice.textContent =`The average starting price is $${averageStartingPrice()}`
-// body.append(averagePrice);
-
-render();
 
 function render () {
     const freelancerDetails = document.querySelector("#freelancers");
@@ -61,7 +56,7 @@ function addFreelancer() {
     
     render();
     
-    console.log(averageStartingPrice());
+    averagePrice.textContent =`The average starting price is $${averageStartingPrice()}`
 
     if (freelancers.length >= moreFreelancers.length +2) {
         clearInterval(addFreelancerIntervalId);
